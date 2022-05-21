@@ -1,0 +1,35 @@
+{
+  "name": "digital-department-viti",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "app": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-mongo": "^4.6.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "ejs": "^3.1.6",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "mongoose": "^5.13.14",
+    "node-fetch": "^3.0.0",
+    "path": "^0.12.7",
+    "request": "^2.88.2"
+  },
+  "keywords": [
+    "department",
+    "viti",
+    "zsu",
+    "kafedra-22",
+    "bot-telegram",
+    "schedule"
+  ],
+  "author": "Dima Binkovskiy",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^6.3.0"
+  }
+}
