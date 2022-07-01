@@ -17,6 +17,7 @@ let mapColorsByIdTypes = new Map([
 
 
 let lessonsLocal;
+
 function loadData(date) {
     $.ajax({
         url: '/admin/schedule/getDataByIdUser',
@@ -24,14 +25,14 @@ function loadData(date) {
         dataType: 'json',
         data: {date: date, idUser: $('#idUser').val()},
         success: function (lessons) {
-            if(!array_compare(lessonsLocal, lessons)){
+            if (!array_compare(lessonsLocal, lessons)) {
                 lessonsLocal = lessons.slice();
                 // lessons[0].idType  может давать undefined
                 document.querySelectorAll('.lines').forEach(e => e.remove())
                 $.post("/admin/schedule/allAudiencesByUserName", {username: $('#username').val()}, function (audiences) {
                     let classNameAppendAll = 'lines'
                     let classHeightCard = 'height-card'
-                    if(audiences.length > 7){
+                    if (audiences.length > 7) {
                         classNameAppendAll = 'lines-1'
                         classHeightCard = 'height-card-9'
                     }
@@ -49,20 +50,20 @@ function loadData(date) {
                                 x.numberLesson === numberLesson)
                             if (lesson !== undefined) {
                                 //проверка на сампо (во время пар)
-                                if(lesson.idType !== undefined && lesson.idType === '615713c9d4053d2db0d12c6b'){
+                                if (lesson.idType !== undefined && lesson.idType === '615713c9d4053d2db0d12c6b') {
                                     htmlAppend += `<div class="col d-flex">
             <div class="col-sm-12 my-auto mx-auto card px-0 gradient-orange border ${classHeightCard}"
                  style="border-radius: 10px">
                 <p class="h1 font-weight-bold text-light my-auto mx-auto card-title">${lesson.group}</p>
             </div>
         </div>`
-                                }else {
+                                } else {
                                     let styleCard = 'gradient-custom'
                                     if (lesson.idType !== undefined) {
                                         styleCard = mapColorsByIdTypes.get(lesson.idType)
                                     }
                                     let sizeGroupHelper = ''
-                                    if(lesson.group.length > 3){
+                                    if (lesson.group.length > 3) {
                                         sizeGroupHelper = 'style="font-size: 2.18vw; text-align: center"'
                                     }
                                     let group = lesson.group.length > 4 ? lesson.group.replace(',', ' ') : lesson.group
@@ -83,7 +84,7 @@ function loadData(date) {
             </div>
         </div>`
                                 }
-                            }else {
+                            } else {
                                 htmlAppend += `<div class="col d-flex">
             <div class="col-sm-12 my-auto mx-auto card px-0 gradient-custom border ${classHeightCard}"
                  style="border-radius: 10px">
@@ -108,12 +109,14 @@ function loadData(date) {
     })
 }
 
-function btnClick(id){
+
+function btnClick(id) {
     date = new Date();
     if (id === 'btn-1') {
         $('#dropdownButton').text('Сьогодні')
         loadData(date.toISOString().split('T')[0])
         clearInterval(interval)
+        console.log(date)
         interval = setInterval(loadData, 10000, date.toISOString().split('T')[0])
     } else if (id === 'btn-2') {
         $('#dropdownButton').text('Завтра')
@@ -127,17 +130,26 @@ function btnClick(id){
         loadData(date.toISOString().split('T')[0]);
         clearInterval(interval)
         interval = setInterval(loadData, 10000, date.toISOString().split('T')[0])
+    } else if (id === 'btn-4') {
+        $('#dropdownButton').text('Вибрати дату')
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        let todayDate = String(date.getDate()).padStart(2, '0');
+        let pat = year + '-' + month + '-' + todayDate;
+        pat = document.getElementById('datefor').value;
+        loadData(pat)
+        clearInterval(interval)
+        interval = setInterval(loadData, 10000, pat)
     }
 }
 
 
-
 function array_compare(a, b) {
     try {
-        if(a.length !== b.length)
+        if (a.length !== b.length)
             return false;
 
-        for(let i = 0, len = a.length; i < len; i++) {
+        for (let i = 0, len = a.length; i < len; i++) {
             if (!deepEqual(a[i], b[i])) {
                 console.log('не однакові')
                 return false;
@@ -145,12 +157,12 @@ function array_compare(a, b) {
         }
 
         return true
-    }catch (error){
+    } catch (error) {
         return false
     }
 
 }
 
-function deepEqual (obj1, obj2){
-    return JSON.stringify(obj1)===JSON.stringify(obj2);
+function deepEqual(obj1, obj2) {
+    return JSON.stringify(obj1) === JSON.stringify(obj2);
 }
