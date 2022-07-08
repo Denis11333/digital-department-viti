@@ -7,7 +7,7 @@ const cors = require('cors')
 
 const app = express()
 app.use(cors())
-const PORT = 8981
+const PORT = 8080
 
 require('./config/connect-mongo')
 
