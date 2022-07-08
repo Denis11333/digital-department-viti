@@ -16,7 +16,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-        mongoUrl: 'mongodb://172.16.200.2:27017/'
+        mongoUrl: 'mongodb://192.168.0.226:27017/'
     })
 }));
 
