@@ -43,7 +43,7 @@ function loadData(date) {
                             <div class="col-1 d-flex">
                                 <p class="h1 font-weight-bold my-auto mx-auto text-center">${value.audienceTitle}</p>
                             </div>`
-                        for (let numberLesson = 1; numberLesson <= 5; numberLesson++) {
+                        for (let numberLesson = 1; numberLesson <= 4; numberLesson++) {
                             let lesson = lessons.find(x =>
                                 x.idAudience === value._id &&
                                 x.date === date &&
