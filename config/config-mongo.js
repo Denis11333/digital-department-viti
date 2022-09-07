@@ -1,6 +1,6 @@
 exports.mongoDb = {
     db: {
-        db: 'digital-department-viti',
+        db: 'admin',
         host: 'localhost',
         port: 27017
     }
