@@ -16,7 +16,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-        mongoUrl: 'local'
+        mongoUrl: 'mongodb://localhost:27017/'
     })
 }));
 
