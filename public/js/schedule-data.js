@@ -79,7 +79,7 @@ function loadData(date) {
                     <div class="col-md-7 d-flex">
                         <div class="my-auto mx-auto">
                             <p class="h3 text-center text-light">${lesson.title.length > 5 ? lesson.title.substr(0, 5) + '.' : lesson.title}</p>
-                            <p class="h5 text-center text-light">${lesson.teacher.length > 10 ? lesson.teacher.substr(0, 10) + '..' : lesson.teacher}</p>
+                            <p class="h5 text-center text-light">${lesson.teacher.length > 12 ? lesson.teacher.substr(0, 10) + '..' : lesson.teacher}</p>
                         </div>
                     </div>
                 </div>
