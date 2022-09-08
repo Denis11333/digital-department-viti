@@ -31,6 +31,7 @@ function loadData(date) {
                 lessonsLocal = lessons.slice();
                 // lessons[0].idType  может давать undefined
                 document.querySelectorAll('.lines').forEach(e => e.remove())
+                document.querySelectorAll('.lines-1').forEach(e => e.remove())
                 $.post("/admin/schedule/allAudiencesByUserName", {username: $('#username').val()}, function (audiences) {
                     let classNameAppendAll = 'lines'
                     let classHeightCard = 'height-card'
