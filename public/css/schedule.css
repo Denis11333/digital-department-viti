@@ -125,6 +125,15 @@ body {
     }
 }
 
+.gradient-purple{
+    /*background: linear-gradient(96.2deg, rgb(255, 230, 112) 10.4%, rgb(255, 100, 100) 43.8%, rgb(0, 93, 219) 105.8%);*/
+    background: linear-gradient(87.4deg, rgb(255, 241, 165) 1.9%, rgb(200, 125, 76) 49.7%, rgb(83, 54, 54) 100.5%);
+}
+.gradient-yellow{
+    background: linear-gradient(135deg, rgb(255, 168, 168) 10%, rgb(252, 255, 0) 100%);
+
+}
+
 .gradient-green {
     background: #8db139;
     background: -webkit-linear-gradient(to left, rgba(141, 177, 57, 1), rgba(43, 151, 57, 1));

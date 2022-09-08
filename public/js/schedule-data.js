@@ -12,9 +12,11 @@ let mapColorsByIdTypes = new Map([
     ['615713c9d4053d2db0d12c6a', 'gradient-blue'],
     ['615713c9d4053d2db0d12c6b', 'gradient-orange'],
     ['615713c9d4053d2db0d12c6c', 'gradient-dark'],
+    ['6318b00077223c194b91d493', 'gradient-yellow'],
+    ['6318b03777223c194b91d494', 'gradient-purple'],
+
     ['null', 'gradient-custom']
 ])
-
 
 let lessonsLocal;
 
