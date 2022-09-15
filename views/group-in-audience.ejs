@@ -72,8 +72,9 @@
                         <th scope="row"><%= i + 1 %></th>
                         <th><%= audiences[i].audienceTitle %></th>
                         <th>
-                            <input type="text" id="<%= audiences[i].audienceTitle %>"
-                                   value="<%= audiences[i].groupInAudience === 'null' ? '' : audiences[i].groupInAudience%>" class="form-control">
+                            <input type="text" id="<%= audiences[i].audienceTitle.replace('*', 'Star') %>"
+                                   value="<%= audiences[i].groupInAudience === 'null' ? '' : audiences[i].groupInAudience%>" class="form-control"/>
+
                         </th>
                     </tr>
                 <% } %>
