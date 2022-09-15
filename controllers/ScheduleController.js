@@ -2,6 +2,7 @@ const Lesson = require('../models/Lesson');
 const AudienceAPI = require('./api/AudienceController');
 const TypeAPI = require('./api/TypeController');
 const UserAPI = require('./api/UserController');
+const nodeCron = require('node-cron')
 
 exports.allAudiencesByUserName = async function (req, res) {
     let user = await UserAPI.getUserByUsername(req.body.username)
@@ -93,4 +94,10 @@ exports.getSchedule = async function (req, res) {
 
 exports.getTypeById = async function (req, res) {
     res.json(await TypeAPI.findById(req.body.id))
+}
+
+exports.updater = async function(){
+    let update = new nodeCron.schedule("0 0 0 * * *", exports.getSchedule)
+
+    update.start();
 }

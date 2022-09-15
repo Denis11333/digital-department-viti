@@ -43,4 +43,8 @@ app.use(function (req, res, next) {
 
 app.listen(PORT, () => {
     console.log('Server Start. Port: ' + PORT);
+
+    let updater = require(__dirname + '\\controllers\\ScheduleController.js')
+
+    updater.updater()
 })
