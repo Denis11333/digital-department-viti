@@ -97,7 +97,7 @@ exports.getTypeById = async function (req, res) {
 }
 
 exports.updater = async function(){
-    let update = new nodeCron.schedule("0 0 0 * * *", exports.getSchedule)
+    let update = new nodeCron.schedule("0 0 * * * *", exports.getSchedule)
 
     update.start();
 }
