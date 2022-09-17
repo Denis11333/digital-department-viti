@@ -95,9 +95,3 @@ exports.getSchedule = async function (req, res) {
 exports.getTypeById = async function (req, res) {
     res.json(await TypeAPI.findById(req.body.id))
 }
-
-exports.updater = async function(){
-    let update = new nodeCron.schedule("0 0 * * * *", exports.getSchedule)
-
-    update.start();
-}
