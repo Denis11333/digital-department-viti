@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const mongoConfig = require('./config-mongo')
 
 mongoose.connect('mongodb://localhost:27017/')
     .then(() => {

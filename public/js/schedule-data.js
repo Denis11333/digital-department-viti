@@ -1,10 +1,8 @@
-let date = new Date()
 let interval = null
 
-// maybe need return ( past commit )
 $(document).ready(function () {
-    loadData(date.toISOString().split('T')[0])
-    interval = setInterval(loadData, 10000, date.toISOString().split('T')[0])
+    loadData()
+    interval = setInterval(loadData, 10000)
 });
 
 let mapColorsByIdTypes = new Map([
@@ -19,10 +17,12 @@ let mapColorsByIdTypes = new Map([
     ['null', 'gradient-custom']
 ])
 
-
 let lessonsLocal;
 
-function loadData(date) {
+function loadData(date = null) {
+    if(date === null) {
+        date = new Date().toISOString().split('T')[0]
+    }
 
     console.log(date)
 
@@ -117,15 +117,13 @@ function loadData(date) {
     })
 }
 
-
 function btnClick(id) {
-    date = new Date();
+    let date = new Date();
     if (id === 'btn-1') {
         $('#dropdownButton').text('Сьогодні')
         loadData(date.toISOString().split('T')[0])
         clearInterval(interval)
-        console.log(date)
-        interval = setInterval(loadData, 10000, date.toISOString().split('T')[0])
+        interval = setInterval(loadData, 10000)
     } else if (id === 'btn-2') {
         $('#dropdownButton').text('Завтра')
         date.setDate(date.getDate() + 1);

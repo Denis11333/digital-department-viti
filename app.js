@@ -15,7 +15,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-        mongoUrl: 'mongodb+srv://Denis:1111@cluster0.pdpkv.mongodb.net/digital-department-viti?retryWrites=true&w=majority'
+        mongoUrl: 'mongodb://localhost:27017/'
     })
 }));
 
