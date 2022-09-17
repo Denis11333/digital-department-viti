@@ -2,7 +2,6 @@ const express = require('express')
 const path = require("path")
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
-const mongoose = require('mongoose')
 const cors = require('cors')
 
 const app = express()
@@ -16,7 +15,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-        mongoUrl: 'mongodb://localhost:27017/'
+        mongoUrl: 'mongodb+srv://Denis:1111@cluster0.pdpkv.mongodb.net/digital-department-viti?retryWrites=true&w=majority'
     })
 }));
 
@@ -35,7 +34,7 @@ app.use('/admin/schedule', require('./routes/ScheduleRoute'))
 app.use('/api/telegram', require('./routes/UserTelegramAPI'))
 
 
-app.use(function (req, res, next) {
+app.use(function (req, res) {
     res.status(404).render('error', {
         error: 'Сторінка не знайдена'
     })
