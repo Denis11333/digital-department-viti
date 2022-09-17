@@ -1,9 +1,12 @@
+let date = new Date()
 let interval = null
 
-// maybe need return
+// maybe need return ( past commit )
 $(document).ready(function () {
-    loadData(new Date().toISOString().split('T')[0])
-    interval = setInterval(loadData, 10000, new Date().toISOString().split('T')[0])
+    date = new Date()
+    loadData(date.toISOString().split('T')[0])
+    interval = setInterval(loadData, 10000, date.toISOString().split('T')[0])
+    // interval = setInterval(test, 10000)
 });
 
 let mapColorsByIdTypes = new Map([
@@ -18,9 +21,12 @@ let mapColorsByIdTypes = new Map([
     ['null', 'gradient-custom']
 ])
 
+
 let lessonsLocal;
 
 function loadData(date) {
+
+    console.log(date)
 
     $.ajax({
         url: '/admin/schedule/getDataByIdUser',

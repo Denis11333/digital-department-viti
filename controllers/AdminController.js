@@ -1,7 +1,6 @@
 const Lesson = require('../models/Lesson')
 const api = require('../controllers/api/AudienceController')
 const userApi = require('../controllers/api/UserController')
-const {checkPrime} = require("crypto");
 
 exports.getAudiencePage = async function(req, res){
     if (req.session.user === undefined) {

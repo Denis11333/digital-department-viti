@@ -89,6 +89,9 @@ exports.getSchedule = async function (req, res) {
         title: user.title,
         userSession: req.session.user
     });
+
+
+
 }
 
 exports.getTypeById = async function (req, res) {
