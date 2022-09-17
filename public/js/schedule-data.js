@@ -3,10 +3,8 @@ let interval = null
 
 // maybe need return ( past commit )
 $(document).ready(function () {
-    date = new Date()
     loadData(date.toISOString().split('T')[0])
     interval = setInterval(loadData, 10000, date.toISOString().split('T')[0])
-    // interval = setInterval(test, 10000)
 });
 
 let mapColorsByIdTypes = new Map([
