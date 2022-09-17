@@ -1,9 +1,9 @@
-let date = new Date()
 let interval = null
+
+// maybe need return
 $(document).ready(function () {
-    date = new Date()
-    loadData(date.toISOString().split('T')[0])
-    interval = setInterval(loadData, 10000, date.toISOString().split('T')[0])
+    loadData(new Date().toISOString().split('T')[0])
+    interval = setInterval(loadData, 10000, new Date().toISOString().split('T')[0])
 });
 
 let mapColorsByIdTypes = new Map([
@@ -21,6 +21,7 @@ let mapColorsByIdTypes = new Map([
 let lessonsLocal;
 
 function loadData(date) {
+
     $.ajax({
         url: '/admin/schedule/getDataByIdUser',
         method: 'post',

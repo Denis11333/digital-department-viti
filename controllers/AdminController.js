@@ -1,6 +1,7 @@
 const Lesson = require('../models/Lesson')
 const api = require('../controllers/api/AudienceController')
 const userApi = require('../controllers/api/UserController')
+const {checkPrime} = require("crypto");
 
 exports.getAudiencePage = async function(req, res){
     if (req.session.user === undefined) {
@@ -87,6 +88,7 @@ exports.postAudienceSave = async function(req, res) {
                 audience.groupInAudience = req.body.groupInAudience
             }
         }
+
         await api.update(req.body.id, audience)
 
         let audiences = await api.findAllByIdUser(req.session.user.id)
