@@ -20,8 +20,13 @@ let mapColorsByIdTypes = new Map([
 let lessonsLocal;
 
 function loadData(date = null) {
-    if(date === null) {
-        date = new Date().toISOString().split('T')[0]
+    if (date === null) {
+        myDate = new Date()
+
+        myDate.setHours(myDate.getHours() + 3)
+
+        console.log(myDate.toISOString().split('T'))
+        date = myDate.toISOString().split('T')[0]
     }
 
     console.log(date)
@@ -119,6 +124,8 @@ function loadData(date = null) {
 
 function btnClick(id) {
     let date = new Date();
+    date.setHours(date.getHours() + 3)
+
     if (id === 'btn-1') {
         $('#dropdownButton').text('Сьогодні')
         loadData(date.toISOString().split('T')[0])
